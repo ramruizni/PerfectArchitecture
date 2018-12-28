@@ -38,7 +38,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="huA-M5-3Bd">
-                                <rect key="frame" x="16" y="179" width="343" height="468"/>
+                                <rect key="frame" x="16" y="179" width="343" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainTableViewCell" id="TCl-6q-uuU" customClass="MainTableViewCell" customModule="PerfectArchitecture" customModuleProvider="target">
@@ -122,7 +122,7 @@
                             <constraint firstItem="giv-bi-i08" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="5qT-9J-w7n"/>
                             <constraint firstItem="huA-M5-3Bd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="6wc-Et-q5b"/>
                             <constraint firstItem="giv-bi-i08" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KkI-cd-YFV"/>
-                            <constraint firstItem="huA-M5-3Bd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="VJz-Qf-KDP"/>
+                            <constraint firstItem="huA-M5-3Bd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VJz-Qf-KDP"/>
                             <constraint firstItem="huA-M5-3Bd" firstAttribute="top" secondItem="bg1-HU-w1A" secondAttribute="bottom" constant="20" id="WRj-Og-7Rl"/>
                             <constraint firstItem="C9W-yj-7o7" firstAttribute="top" secondItem="giv-bi-i08" secondAttribute="bottom" constant="20" id="bnU-gT-6V4"/>
                             <constraint firstItem="bg1-HU-w1A" firstAttribute="leading" secondItem="C9W-yj-7o7" secondAttribute="trailing" constant="20" id="cjR-Ao-C2O"/>
@@ -138,11 +138,47 @@
                         <outlet property="favoritesSwitch" destination="By4-aA-kbG" id="vVz-6B-1hs"/>
                         <outlet property="searchTextField" destination="bg1-HU-w1A" id="kzA-ng-sFs"/>
                         <outlet property="tableView" destination="huA-M5-3Bd" id="itg-ot-Mih"/>
+                        <segue destination="YcU-fa-Zve" kind="push" identifier="toDetail" id="Ql7-sc-mr2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="-564.46776611694156"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="v0W-C0-gIf">
+            <objects>
+                <viewController id="YcU-fa-Zve" customClass="DetailViewController" customModule="PerfectArchitecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hcW-f6-ahF" customClass="I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bai-qc-4ig">
+                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9Fz-CA-8oK"/>
+                                    <constraint firstAttribute="width" constant="42" id="IyI-hF-Lst"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bai-qc-4ig" firstAttribute="centerY" secondItem="hcW-f6-ahF" secondAttribute="centerY" id="0vD-m8-Pyg"/>
+                            <constraint firstItem="Bai-qc-4ig" firstAttribute="centerX" secondItem="hcW-f6-ahF" secondAttribute="centerX" id="KW5-xy-2zs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zfy-BF-vV1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rP8-w6-7mg"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="Bai-qc-4ig" id="z05-ME-Iil"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwn-7u-Cjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1631" y="-564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kfu-k4-cCb">

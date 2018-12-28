@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2D6EEB21D6BAA3002E466F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2D6EEA21D6BAA3002E466F /* DetailViewController.swift */; };
 		0DA4496121D5775B00FED445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4496021D5775B00FED445 /* AppDelegate.swift */; };
 		0DA4496321D5775B00FED445 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4496221D5775B00FED445 /* MainViewController.swift */; };
 		0DA4496621D5775B00FED445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4496421D5775B00FED445 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D2D6EEA21D6BAA3002E466F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0DA4495D21D5775B00FED445 /* PerfectArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA4496021D5775B00FED445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DA4496221D5775B00FED445 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D2D6EE921D6BA8B002E466F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0D2D6EEA21D6BAA3002E466F /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		0DA4495421D5775B00FED445 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		0DA4497221D5777F00FED445 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0D2D6EE921D6BA8B002E466F /* Detail */,
 				0DA4497321D57BF800FED445 /* Main */,
 			);
 			path = Classes;
@@ -234,6 +245,7 @@
 				0DA4496321D5775B00FED445 /* MainViewController.swift in Sources */,
 				0DA4497521D57E1A00FED445 /* MainTableViewCell.swift in Sources */,
 				0DA4496121D5775B00FED445 /* AppDelegate.swift in Sources */,
+				0D2D6EEB21D6BAA3002E466F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69X2QW4Q3B;
 				INFOPLIST_FILE = PerfectArchitecture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69X2QW4Q3B;
 				INFOPLIST_FILE = PerfectArchitecture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
