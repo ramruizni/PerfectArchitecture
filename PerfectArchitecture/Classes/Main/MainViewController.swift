@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedTitle: String?
+    
     let viewModel = MainViewModel()
     let disposeBag = DisposeBag()
     
@@ -29,33 +31,26 @@ class MainViewController: UIViewController {
     }
     
     func setupBindings() {
-        
-        viewModel.elements.asObservable()
-        /*
-        Observable.combineLatest(viewModel.elements.asObservable(), favoritesSwitch.rx.isOn, searchTextField.rx.text, resultSelector: { theElements, showFavorites, searchText in
-            return (theElements as [Element]).filter { element -> Bool in
-                    self.viewModel.shouldDisplayRow(element, showFavorites, searchText, element.name!)
-            }
-        })*/
+        viewModel.elements
             .bind(to: tableView.rx.items) { (tableView, row, element) in
                 return self.setupCell(tableView, row, element)
-            }
-            .disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
-        viewModel.showFavorites
-            .bind(to: favoritesSwitch.rx.isOn)
-            .disposed(by: disposeBag)
+        favoritesSwitch.rx.isOn
+            .subscribe(onNext: { value in
+                self.viewModel.showFavorites.value = value
+            }).disposed(by: disposeBag)
         
-        viewModel.searchText
-            .bind(to: searchTextField.rx.text)
-            .disposed(by: disposeBag)
-        
+        searchTextField.rx.text
+            .subscribe(onNext: { value in
+                self.viewModel.searchText.value = value ?? ""
+            }).disposed(by: disposeBag)
+ 
         tableView.rx.modelSelected(Element.self)
             .subscribe(onNext: { element in
-                self.viewModel.selectedTitle = element.name
+                self.selectedTitle = element.name
                 self.performSegue(withIdentifier: SegueType.detail.rawValue, sender: self)
-            })
-        .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
     
     func setupCell(_ tableView: UITableView, _ row: Int, _ element: Element) -> MainTableViewCell {
@@ -66,7 +61,7 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? DetailViewController {
-                destinationVC.name = viewModel.selectedTitle ?? ""
+                destinationVC.name = selectedTitle ?? ""
         }
     }
     

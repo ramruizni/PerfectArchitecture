@@ -10,38 +10,33 @@ import Foundation
 import RxSwift
 
 class MainViewModel {
+
+    var _elements = Variable<[Element]>([])
+    var showFavorites = Variable<Bool>(false)
+    let searchText = Variable<String>("")
     
-    let elements: BehaviorSubject<[Element]>
-    //let elements: Observable<[Element]>
-    
-    var selectedTitle: String?
-    
-    let showFavorites: Observable<Bool>
-    let searchText: Observable<String>
+    var elements: Observable<[Element]>
     
     init() {
-        let _showFavorites = Variable<Bool>(true)
-        self.showFavorites = _showFavorites.asObservable().map { $0 }
+        elements = Observable.combineLatest(_elements.asObservable(), showFavorites.asObservable(), searchText.asObservable(), resultSelector: { elements, showFavorites, searchText in
+            return (elements as [Element]).filter { element -> Bool in
+                if showFavorites && !element.isFavorite {
+                    return false
+                } else if !searchText.isEmpty, !element.name!.contains(searchText) {
+                    return false
+                } else {
+                    return true
+                }
+            }
+        })
         
-        let _searchText = Variable<String>("azazazaz")
-        self.searchText = _searchText.asObservable().map { $0 }
-        
-        var _elements = [Element]()
-        for i in 0...100 {
-            _elements.append(Element(String(i), "This is a random description for some element :D", i % 2 == 0))
-        }
-        self.elements = BehaviorSubject<[Element]>(value: _elements)
-        
+        populateElements()
     }
     
-    func shouldDisplayRow(_ element: Element, _ showFavorites: Bool, _ searchText: String?, _ name: String) -> Bool {
-        if showFavorites && !element.isFavorite {
-            return false
+    func populateElements() {
+        for i in 0...100 {
+            _elements.value.append(Element(String(i), "This is a random description for some element :D", i % 2 == 0))
         }
-        if let searchText = searchText, !searchText.isEmpty, !name.contains(searchText) {
-            return false
-        }
-        return true
     }
     
 }
