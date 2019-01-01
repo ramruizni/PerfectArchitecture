@@ -16,10 +16,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    let viewModel = MainViewModel()
     let disposeBag = DisposeBag()
-    let elements = Variable<[Element]>([])
-    
-    var selectedTitle: String?
     
     private enum SegueType: String {
         case detail = "toDetail"
@@ -27,57 +25,48 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        generateData()
         setupBindings()
-    }
-
-    func generateData() {
-        for i in 0...100 {
-            elements.value.append(Element(String(i), "This is a random description for some element :D", i % 2 == 0))
-        }
     }
     
     func setupBindings() {
-        Observable.combineLatest(elements.asObservable(), favoritesSwitch.rx.isOn, searchTextField.rx.text, resultSelector: { theElements, showFavorites, searchText in
-            
+        
+        viewModel.elements.asObservable()
+        /*
+        Observable.combineLatest(viewModel.elements.asObservable(), favoritesSwitch.rx.isOn, searchTextField.rx.text, resultSelector: { theElements, showFavorites, searchText in
             return (theElements as [Element]).filter { element -> Bool in
-                    self.shouldDisplayRow(element, showFavorites, searchText, element.name!)
+                    self.viewModel.shouldDisplayRow(element, showFavorites, searchText, element.name!)
             }
-            
-        })
+        })*/
             .bind(to: tableView.rx.items) { (tableView, row, element) in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: IndexPath(row: row, section: 0)) as! MainTableViewCell
-                cell.setData(withElement: element)
-                return cell
+                return self.setupCell(tableView, row, element)
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.showFavorites
+            .bind(to: favoritesSwitch.rx.isOn)
+            .disposed(by: disposeBag)
+        
+        viewModel.searchText
+            .bind(to: searchTextField.rx.text)
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Element.self)
             .subscribe(onNext: { element in
-                self.cellPressed(withElement: element)
+                self.viewModel.selectedTitle = element.name
+                self.performSegue(withIdentifier: SegueType.detail.rawValue, sender: self)
             })
         .disposed(by: disposeBag)
     }
     
-    func shouldDisplayRow(_ element: Element, _ showFavorites: Bool, _ searchText: String?, _ name: String) -> Bool {
-        if showFavorites && !element.isFavorite {
-            return false
-        }
-        if let searchText = searchText, !searchText.isEmpty, !name.contains(searchText) {
-            return false
-        }
-        return true
-    }
-    
-    func cellPressed(withElement element: Element) {
-        selectedTitle = element.name
-        performSegue(withIdentifier: SegueType.detail.rawValue, sender: self)
+    func setupCell(_ tableView: UITableView, _ row: Int, _ element: Element) -> MainTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: IndexPath(row: row, section: 0)) as! MainTableViewCell
+        cell.setData(withElement: element)
+        return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? DetailViewController {
-                destinationVC.name = selectedTitle ?? ""
+                destinationVC.name = viewModel.selectedTitle ?? ""
         }
     }
     
