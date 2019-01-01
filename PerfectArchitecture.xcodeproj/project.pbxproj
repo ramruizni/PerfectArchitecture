@@ -14,6 +14,7 @@
 		0DA4496821D5775C00FED445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4496721D5775C00FED445 /* Assets.xcassets */; };
 		0DA4496B21D5775C00FED445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA4496921D5775C00FED445 /* LaunchScreen.storyboard */; };
 		0DA4497521D57E1A00FED445 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4497421D57E1A00FED445 /* MainTableViewCell.swift */; };
+		8A90522421DB04330047002E /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90522321DB04330047002E /* Element.swift */; };
 		E285B851CAE3348DEE56816F /* Pods_PerfectArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE72195849DC7F2925E4F8CC /* Pods_PerfectArchitecture.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		0DA4496C21D5775C00FED445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA4497421D57E1A00FED445 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		54519CAD1021BCB0E8FC6DC1 /* Pods-PerfectArchitecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectArchitecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectArchitecture/Pods-PerfectArchitecture.debug.xcconfig"; sourceTree = "<group>"; };
+		8A90522321DB04330047002E /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		EE72195849DC7F2925E4F8CC /* Pods_PerfectArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfectArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96C90AA1B4D2D39AACA5DB8 /* Pods-PerfectArchitecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectArchitecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectArchitecture/Pods-PerfectArchitecture.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 		0DA4495F21D5775B00FED445 /* PerfectArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				8A90522221DB04270047002E /* Models */,
 				0DA4497221D5777F00FED445 /* Classes */,
 				0DA4496021D5775B00FED445 /* AppDelegate.swift */,
 				0DA4496421D5775B00FED445 /* Main.storyboard */,
@@ -116,6 +119,14 @@
 				EE72195849DC7F2925E4F8CC /* Pods_PerfectArchitecture.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A90522221DB04270047002E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8A90522321DB04330047002E /* Element.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +257,7 @@
 				0DA4497521D57E1A00FED445 /* MainTableViewCell.swift in Sources */,
 				0DA4496121D5775B00FED445 /* AppDelegate.swift in Sources */,
 				0D2D6EEB21D6BAA3002E466F /* DetailViewController.swift in Sources */,
+				8A90522421DB04330047002E /* Element.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,14 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    func setData(_ name: String, _ description: String) {
-        nameLabel.text = name
-        descriptionTextView.text = description
+    func setData(withElement element: Element) {
+        nameLabel.text = element.name!
+        descriptionTextView.text = element.description!
+        if element.isFavorite {
+            contentView.backgroundColor = UIColor.yellow
+        } else {
+            contentView.backgroundColor = UIColor.white
+        }
     }
     
 }

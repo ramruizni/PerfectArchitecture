@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let disposeBag = DisposeBag()
-    let allTitles = Variable<[String]>([])
+    let elements = Variable<[Element]>([])
     
     var selectedTitle: String?
     
@@ -34,37 +34,44 @@ class MainViewController: UIViewController {
 
     func generateData() {
         for i in 0...100 {
-            allTitles.value.append(String(i))
+            elements.value.append(Element(String(i), "This is a random description for some element :D", i % 2 == 0))
         }
     }
     
     func setupBindings() {
-        Observable.combineLatest(allTitles.asObservable(), favoritesSwitch.rx.isOn, searchTextField.rx.text, resultSelector: { currentTitles, showFavorites, searchText in
-            return currentTitles.filter { title -> Bool in
-                self.shouldDisplayRow(showFavorites: showFavorites, searchText: searchText, title: title)
+        Observable.combineLatest(elements.asObservable(), favoritesSwitch.rx.isOn, searchTextField.rx.text, resultSelector: { theElements, showFavorites, searchText in
+            
+            return (theElements as [Element]).filter { element -> Bool in
+                    self.shouldDisplayRow(element, showFavorites, searchText, element.name!)
             }
+            
         })
-            .bind(to: tableView.rx.items(cellIdentifier: "mainTableViewCell", cellType: MainTableViewCell.self)) { _, title, cell in
-                cell.setData(title, "Description description description description description description")
+            .bind(to: tableView.rx.items) { (tableView, row, element) in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: IndexPath(row: row, section: 0)) as! MainTableViewCell
+                cell.setData(withElement: element)
+                return cell
             }
             .disposed(by: disposeBag)
         
-        tableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.cellPressed(indexPath.row)
+        tableView.rx.modelSelected(Element.self)
+            .subscribe(onNext: { element in
+                self.cellPressed(withElement: element)
             })
-            .disposed(by: disposeBag)
+        .disposed(by: disposeBag)
     }
     
-    func shouldDisplayRow(showFavorites: Bool, searchText: String?, title: String) -> Bool {
-        if let searchText = searchText, !searchText.isEmpty, !title.contains(searchText) {
+    func shouldDisplayRow(_ element: Element, _ showFavorites: Bool, _ searchText: String?, _ name: String) -> Bool {
+        if showFavorites && !element.isFavorite {
+            return false
+        }
+        if let searchText = searchText, !searchText.isEmpty, !name.contains(searchText) {
             return false
         }
         return true
     }
     
-    func cellPressed(_ row: Int) {
-        selectedTitle = allTitles.value[row]
+    func cellPressed(withElement element: Element) {
+        selectedTitle = element.name
         performSegue(withIdentifier: SegueType.detail.rawValue, sender: self)
     }
     
@@ -72,7 +79,6 @@ class MainViewController: UIViewController {
         if let destinationVC = segue.destination as? DetailViewController {
                 destinationVC.name = selectedTitle ?? ""
         }
-        
     }
     
 }
