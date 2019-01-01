@@ -6,7 +6,6 @@
 //  Copyright © 2019 valid. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
 class MainViewModel {
@@ -18,23 +17,28 @@ class MainViewModel {
     var elements: Observable<[Element]>
     
     init() {
+        elements = _elements.asObservable()
         elements = Observable.combineLatest(_elements.asObservable(), showFavorites.asObservable(), searchText.asObservable(), resultSelector: { elements, showFavorites, searchText in
-            return (elements as [Element]).filter { element -> Bool in
-                if showFavorites && !element.isFavorite {
-                    return false
-                } else if !searchText.isEmpty, !element.name!.contains(searchText) {
-                    return false
-                } else {
-                    return true
-                }
-            }
+            return self.elementsToDisplay(elements, showFavorites, searchText)
         })
         
         populateElements()
     }
     
+    func elementsToDisplay(_ elements: [Element], _ showFavorites: Bool, _ searchText: String) -> [Element] {
+        return (elements as [Element]).filter { element -> Bool in
+            if showFavorites && !element.isFavorite {
+                return false
+            } else if !searchText.isEmpty, !element.name!.contains(searchText) {
+                return false
+            } else {
+                return true
+            }
+        }
+    }
+    
     func populateElements() {
-        for i in 0...100 {
+        for i in 0...10000 {
             _elements.value.append(Element(String(i), "This is a random description for some element :D", i % 2 == 0))
         }
     }
