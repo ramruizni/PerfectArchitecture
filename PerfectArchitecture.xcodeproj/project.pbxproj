@@ -16,6 +16,11 @@
 		0DA4497521D57E1A00FED445 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA4497421D57E1A00FED445 /* MainTableViewCell.swift */; };
 		8A90522421DB04330047002E /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90522321DB04330047002E /* Element.swift */; };
 		8A90522621DB3DAC0047002E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90522521DB3DAC0047002E /* MainViewModel.swift */; };
+		8AB8F77821DCE04200CFB1BA /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F77721DCE04200CFB1BA /* StoryboardInitializable.swift */; };
+		8AB8F77A21DCE05A00CFB1BA /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F77921DCE05A00CFB1BA /* BaseCoordinator.swift */; };
+		8AB8F77C21DCE08D00CFB1BA /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F77B21DCE08D00CFB1BA /* AppCoordinator.swift */; };
+		8AB8F77E21DCE0E800CFB1BA /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F77D21DCE0E800CFB1BA /* MainCoordinator.swift */; };
+		8ACF791021DE1336002D5CC5 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF790F21DE1336002D5CC5 /* DetailCoordinator.swift */; };
 		E285B851CAE3348DEE56816F /* Pods_PerfectArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE72195849DC7F2925E4F8CC /* Pods_PerfectArchitecture.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +37,11 @@
 		54519CAD1021BCB0E8FC6DC1 /* Pods-PerfectArchitecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectArchitecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectArchitecture/Pods-PerfectArchitecture.debug.xcconfig"; sourceTree = "<group>"; };
 		8A90522321DB04330047002E /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		8A90522521DB3DAC0047002E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8AB8F77721DCE04200CFB1BA /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		8AB8F77921DCE05A00CFB1BA /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		8AB8F77B21DCE08D00CFB1BA /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8AB8F77D21DCE0E800CFB1BA /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8ACF790F21DE1336002D5CC5 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		EE72195849DC7F2925E4F8CC /* Pods_PerfectArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PerfectArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96C90AA1B4D2D39AACA5DB8 /* Pods-PerfectArchitecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectArchitecture.release.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectArchitecture/Pods-PerfectArchitecture.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +61,7 @@
 		0D2D6EE921D6BA8B002E466F /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				8ACF790F21DE1336002D5CC5 /* DetailCoordinator.swift */,
 				0D2D6EEA21D6BAA3002E466F /* DetailViewController.swift */,
 			);
 			path = Detail;
@@ -77,9 +88,11 @@
 		0DA4495F21D5775B00FED445 /* PerfectArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				8AB8F77621DCE02B00CFB1BA /* Library */,
 				8A90522221DB04270047002E /* Models */,
 				0DA4497221D5777F00FED445 /* Classes */,
 				0DA4496021D5775B00FED445 /* AppDelegate.swift */,
+				8AB8F77B21DCE08D00CFB1BA /* AppCoordinator.swift */,
 				0DA4496421D5775B00FED445 /* Main.storyboard */,
 				0DA4496721D5775C00FED445 /* Assets.xcassets */,
 				0DA4496921D5775C00FED445 /* LaunchScreen.storyboard */,
@@ -100,9 +113,10 @@
 		0DA4497321D57BF800FED445 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8AB8F77D21DCE0E800CFB1BA /* MainCoordinator.swift */,
 				0DA4496221D5775B00FED445 /* MainViewController.swift */,
-				0DA4497421D57E1A00FED445 /* MainTableViewCell.swift */,
 				8A90522521DB3DAC0047002E /* MainViewModel.swift */,
+				0DA4497421D57E1A00FED445 /* MainTableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -130,6 +144,15 @@
 				8A90522321DB04330047002E /* Element.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8AB8F77621DCE02B00CFB1BA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				8AB8F77721DCE04200CFB1BA /* StoryboardInitializable.swift */,
+				8AB8F77921DCE05A00CFB1BA /* BaseCoordinator.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,12 +279,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB8F77821DCE04200CFB1BA /* StoryboardInitializable.swift in Sources */,
 				0DA4496321D5775B00FED445 /* MainViewController.swift in Sources */,
 				0DA4497521D57E1A00FED445 /* MainTableViewCell.swift in Sources */,
+				8ACF791021DE1336002D5CC5 /* DetailCoordinator.swift in Sources */,
+				8AB8F77E21DCE0E800CFB1BA /* MainCoordinator.swift in Sources */,
 				0DA4496121D5775B00FED445 /* AppDelegate.swift in Sources */,
 				0D2D6EEB21D6BAA3002E466F /* DetailViewController.swift in Sources */,
 				8A90522421DB04330047002E /* Element.swift in Sources */,
+				8AB8F77C21DCE08D00CFB1BA /* AppCoordinator.swift in Sources */,
 				8A90522621DB3DAC0047002E /* MainViewModel.swift in Sources */,
+				8AB8F77A21DCE05A00CFB1BA /* BaseCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69X2QW4Q3B;
+				DEVELOPMENT_TEAM = 6CRVTM4Y7D;
 				INFOPLIST_FILE = PerfectArchitecture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,7 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69X2QW4Q3B;
+				DEVELOPMENT_TEAM = 6CRVTM4Y7D;
 				INFOPLIST_FILE = PerfectArchitecture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

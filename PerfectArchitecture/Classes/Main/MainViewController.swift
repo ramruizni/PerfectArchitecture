@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet weak var favoritesSwitch: UISwitch!
     @IBOutlet weak var searchTextField: UITextField!
@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     
     var selectedTitle: String?
     
-    let viewModel = MainViewModel()
+    var viewModel: MainViewModel!
     let disposeBag = DisposeBag()
     
     private enum SegueType: String {
@@ -47,22 +47,14 @@ class MainViewController: UIViewController {
             }).disposed(by: disposeBag)
  
         tableView.rx.modelSelected(Element.self)
-            .subscribe(onNext: { element in
-                self.selectedTitle = element.name
-                self.performSegue(withIdentifier: SegueType.detail.rawValue, sender: self)
-            }).disposed(by: disposeBag)
+            .bind(to: viewModel.selectElement) // it seems like it must be of type Element :D
+            .disposed(by: disposeBag)
     }
     
     func setupCell(_ tableView: UITableView, _ row: Int, _ element: Element) -> MainTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: IndexPath(row: row, section: 0)) as! MainTableViewCell
         cell.setData(withElement: element)
         return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? DetailViewController {
-                destinationVC.name = selectedTitle ?? ""
-        }
     }
     
 }

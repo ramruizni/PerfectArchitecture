@@ -16,7 +16,19 @@ class MainViewModel {
     
     var elements: Observable<[Element]>
     
+    let selectElement: AnyObserver<Element>
+    let showElement: Observable<Element>
+    
     init() {
+        
+        let _selectElement = PublishSubject<Element>()
+        self.selectElement = _selectElement.asObserver()
+        self.showElement = _selectElement.asObservable()
+        
+        
+        
+        
+        
         elements = _elements.asObservable()
         elements = Observable.combineLatest(_elements.asObservable(), showFavorites.asObservable(), searchText.asObservable(), resultSelector: { elements, showFavorites, searchText in
             return self.elementsToDisplay(elements, showFavorites, searchText)

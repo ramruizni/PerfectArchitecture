@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, StoryboardInitializable {
     
-    var name: String = ""
+    var name: String = "asd"
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         nameLabel.text = name
+        
     }
 
 }
