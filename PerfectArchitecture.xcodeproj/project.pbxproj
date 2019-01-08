@@ -16,6 +16,7 @@
 		0DF1E5C521E4F37200111B04 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF1E5C421E4F37200111B04 /* MainViewController.xib */; };
 		0DF1E5C721E4F82700111B04 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF1E5C621E4F82700111B04 /* MainTableViewCell.xib */; };
 		0DF6ECF521E50D48004F2670 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6ECF421E50D48004F2670 /* DetailViewController.xib */; };
+		0DF6ED0721E53B42004F2670 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6ED0621E53B42004F2670 /* MainViewModelTests.swift */; };
 		8A90522421DB04330047002E /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90522321DB04330047002E /* Element.swift */; };
 		8A90522621DB3DAC0047002E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90522521DB3DAC0047002E /* MainViewModel.swift */; };
 		8AB8F77A21DCE05A00CFB1BA /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8F77921DCE05A00CFB1BA /* BaseCoordinator.swift */; };
@@ -24,6 +25,16 @@
 		8ACF791021DE1336002D5CC5 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACF790F21DE1336002D5CC5 /* DetailCoordinator.swift */; };
 		E285B851CAE3348DEE56816F /* Pods_PerfectArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE72195849DC7F2925E4F8CC /* Pods_PerfectArchitecture.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0DF6ED0121E537DB004F2670 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DA4495521D5775B00FED445 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DA4495C21D5775B00FED445;
+			remoteInfo = PerfectArchitecture;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0D2D6EEA21D6BAA3002E466F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +48,9 @@
 		0DF1E5C421E4F37200111B04 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		0DF1E5C621E4F82700111B04 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		0DF6ECF421E50D48004F2670 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		0DF6ECFC21E537DA004F2670 /* PerfectArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerfectArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DF6ED0021E537DB004F2670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF6ED0621E53B42004F2670 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		54519CAD1021BCB0E8FC6DC1 /* Pods-PerfectArchitecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectArchitecture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectArchitecture/Pods-PerfectArchitecture.debug.xcconfig"; sourceTree = "<group>"; };
 		8A90522321DB04330047002E /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		8A90522521DB3DAC0047002E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -57,6 +71,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DF6ECF921E537DA004F2670 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA4495F21D5775B00FED445 /* PerfectArchitecture */,
+				0DF6ECFD21E537DB004F2670 /* PerfectArchitectureTests */,
 				0DA4495E21D5775B00FED445 /* Products */,
 				571A8E5D16BA3399A9E0E750 /* Pods */,
 				75FE5427A6145E95A5E50047 /* Frameworks */,
@@ -84,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA4495D21D5775B00FED445 /* PerfectArchitecture.app */,
+				0DF6ECFC21E537DA004F2670 /* PerfectArchitectureTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +146,15 @@
 				0DF1E5C621E4F82700111B04 /* MainTableViewCell.xib */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		0DF6ECFD21E537DB004F2670 /* PerfectArchitectureTests */ = {
+			isa = PBXGroup;
+			children = (
+				0DF6ED0621E53B42004F2670 /* MainViewModelTests.swift */,
+				0DF6ED0021E537DB004F2670 /* Info.plist */,
+			);
+			path = PerfectArchitectureTests;
 			sourceTree = "<group>";
 		};
 		571A8E5D16BA3399A9E0E750 /* Pods */ = {
@@ -180,6 +212,24 @@
 			productReference = 0DA4495D21D5775B00FED445 /* PerfectArchitecture.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0DF6ECFB21E537DA004F2670 /* PerfectArchitectureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DF6ED0321E537DB004F2670 /* Build configuration list for PBXNativeTarget "PerfectArchitectureTests" */;
+			buildPhases = (
+				0DF6ECF821E537DA004F2670 /* Sources */,
+				0DF6ECF921E537DA004F2670 /* Frameworks */,
+				0DF6ECFA21E537DA004F2670 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DF6ED0221E537DB004F2670 /* PBXTargetDependency */,
+			);
+			name = PerfectArchitectureTests;
+			productName = PerfectArchitectureTests;
+			productReference = 0DF6ECFC21E537DA004F2670 /* PerfectArchitectureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -192,6 +242,10 @@
 				TargetAttributes = {
 					0DA4495C21D5775B00FED445 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					0DF6ECFB21E537DA004F2670 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 0DA4495C21D5775B00FED445;
 					};
 				};
 			};
@@ -209,6 +263,7 @@
 			projectRoot = "";
 			targets = (
 				0DA4495C21D5775B00FED445 /* PerfectArchitecture */,
+				0DF6ECFB21E537DA004F2670 /* PerfectArchitectureTests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +278,13 @@
 				0DF1E5C521E4F37200111B04 /* MainViewController.xib in Resources */,
 				0DA4496821D5775C00FED445 /* Assets.xcassets in Resources */,
 				0DF1E5C721E4F82700111B04 /* MainTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DF6ECFA21E537DA004F2670 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +359,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DF6ECF821E537DA004F2670 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DF6ED0721E53B42004F2670 /* MainViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0DF6ED0221E537DB004F2670 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DA4495C21D5775B00FED445 /* PerfectArchitecture */;
+			targetProxy = 0DF6ED0121E537DB004F2670 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0DA4496921D5775C00FED445 /* LaunchScreen.storyboard */ = {
@@ -465,6 +543,46 @@
 			};
 			name = Release;
 		};
+		0DF6ED0421E537DB004F2670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69X2QW4Q3B;
+				INFOPLIST_FILE = PerfectArchitectureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rayku.PerfectArchitectureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerfectArchitecture.app/PerfectArchitecture";
+			};
+			name = Debug;
+		};
+		0DF6ED0521E537DB004F2670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69X2QW4Q3B;
+				INFOPLIST_FILE = PerfectArchitectureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rayku.PerfectArchitectureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerfectArchitecture.app/PerfectArchitecture";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -482,6 +600,15 @@
 			buildConfigurations = (
 				0DA4497021D5775C00FED445 /* Debug */,
 				0DA4497121D5775C00FED445 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DF6ED0321E537DB004F2670 /* Build configuration list for PBXNativeTarget "PerfectArchitectureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DF6ED0421E537DB004F2670 /* Debug */,
+				0DF6ED0521E537DB004F2670 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

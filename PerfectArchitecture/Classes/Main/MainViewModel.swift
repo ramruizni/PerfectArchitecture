@@ -7,12 +7,13 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class MainViewModel {
 
-    var _elements = Variable<[Element]>([])
-    var showFavorites = Variable<Bool>(false)
-    let searchText = Variable<String>("")
+    var _elements = BehaviorRelay<[Element]>(value: [])
+    var showFavorites = BehaviorRelay<Bool>(value: false)
+    let searchText = BehaviorRelay<String>(value: "")
     
     var elements: Observable<[Element]>
     
@@ -20,7 +21,6 @@ class MainViewModel {
     let showElement: Observable<Element>
     
     init() {
-        
         let _selectElement = PublishSubject<Element>()
         self.selectElement = _selectElement.asObserver()
         self.showElement = _selectElement.asObservable()
@@ -47,7 +47,8 @@ class MainViewModel {
     
     func populateElements() {
         for i in 0...10000 {
-            _elements.value.append(Element(String(i), "This is a random description for some element :D", i % 2 == 0))
+            let newElement = Element(String(i), "This is a random description for some element :D", i % 2 == 0)
+            _elements.accept(_elements.value + [newElement])
         }
     }
     

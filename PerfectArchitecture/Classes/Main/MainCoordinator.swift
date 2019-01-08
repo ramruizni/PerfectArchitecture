@@ -36,6 +36,7 @@ class MainCoordinator: BaseCoordinator<Void> {
         return Observable.never()
     }
     
+    @discardableResult
     func goToDetail(on rootViewController: UIViewController, withElement element: Element) -> Observable<Void> {
         let detailCoordinator = DetailCoordinator(rootViewController: rootViewController, element: element)
         return coordinate(to: detailCoordinator)

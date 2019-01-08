@@ -41,12 +41,12 @@ class MainViewController: UIViewController {
         
         favoritesSwitch.rx.isOn
             .subscribe(onNext: { value in
-                self.viewModel.showFavorites.value = value
+                self.viewModel.showFavorites.accept(value)
             }).disposed(by: disposeBag)
         
         searchTextField.rx.text
             .subscribe(onNext: { value in
-                self.viewModel.searchText.value = value!
+                self.viewModel.searchText.accept(value!)
             }).disposed(by: disposeBag)
  
         tableView.rx.modelSelected(Element.self)
