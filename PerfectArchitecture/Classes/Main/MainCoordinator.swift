@@ -18,15 +18,15 @@ class MainCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() -> Observable<Void> {
-        let viewModel = MainViewModel()
-        let viewController = MainViewController.initFromStoryboard(name: "Main")
+        let viewController = MainViewController(nibName: "MainViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: viewController)
         
+        let viewModel = MainViewModel()
         viewController.viewModel = viewModel
         
         viewModel.showElement
             .subscribe(onNext: { [weak self] element in
-                self?.goToDetail(on: navigationController)
+                self?.goToDetail(on: navigationController, withElement: element)
                 }
             ).disposed(by: disposeBag)
         
@@ -36,8 +36,8 @@ class MainCoordinator: BaseCoordinator<Void> {
         return Observable.never()
     }
     
-    func goToDetail(on rootViewController: UIViewController) -> Observable<Void> {
-        let detailCoordinator = DetailCoordinator(rootViewController: rootViewController)
+    func goToDetail(on rootViewController: UIViewController, withElement element: Element) -> Observable<Void> {
+        let detailCoordinator = DetailCoordinator(rootViewController: rootViewController, element: element)
         return coordinate(to: detailCoordinator)
     }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
@@ -17,9 +17,9 @@ class MainTableViewCell: UITableViewCell {
         nameLabel.text = element.name!
         descriptionTextView.text = element.description!
         if element.isFavorite {
-            contentView.backgroundColor = UIColor.yellow
+            self.backgroundColor = UIColor.yellow
         } else {
-            contentView.backgroundColor = UIColor.white
+            self.backgroundColor = UIColor.white
         }
     }
     

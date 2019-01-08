@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainViewController: UIViewController, StoryboardInitializable {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var favoritesSwitch: UISwitch!
     @IBOutlet weak var searchTextField: UITextField!
@@ -27,6 +27,9 @@ class MainViewController: UIViewController, StoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "mainTableViewCell")
+        
         setupBindings()
     }
     

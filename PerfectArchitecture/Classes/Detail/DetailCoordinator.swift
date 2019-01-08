@@ -12,17 +12,17 @@ import RxSwift
 class DetailCoordinator: BaseCoordinator<Void> {
     
     private let rootViewController: UIViewController
+    private let element: Element
     
-    init(rootViewController: UIViewController) {
+    init(rootViewController: UIViewController, element: Element) {
         self.rootViewController = rootViewController
+        self.element = element
     }
     
     override func start() -> Observable<CoordinationResult> {
-        
-        let viewController = DetailViewController.initFromStoryboard(name: "Main")
-        let navigationController = UINavigationController(rootViewController: viewController)
-        
-        rootViewController.present(navigationController, animated: true)
+        let viewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        viewController.element = self.element
+        rootViewController.show(viewController, sender: self)
         
         return Observable.never()
     }

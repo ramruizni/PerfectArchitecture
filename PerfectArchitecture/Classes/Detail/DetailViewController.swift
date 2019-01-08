@@ -8,17 +8,16 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, StoryboardInitializable {
+class DetailViewController: UIViewController {
     
-    var name: String = "asd"
+    var element: Element?
     
     @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = name
-        
+        nameLabel.text = element!.name
     }
 
 }
