@@ -1,0 +1,6 @@
+framework module Pods_PerfectArchitecture {
+  umbrella header "Pods-PerfectArchitecture-umbrella.h"
+
+  export *
+  module * { export * }
+}
