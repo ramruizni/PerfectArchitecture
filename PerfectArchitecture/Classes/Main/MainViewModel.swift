@@ -25,10 +25,6 @@ class MainViewModel {
         self.selectElement = _selectElement.asObserver()
         self.showElement = _selectElement.asObservable()
         
-        
-        
-        
-        
         elements = _elements.asObservable()
         elements = Observable.combineLatest(_elements.asObservable(), showFavorites.asObservable(), searchText.asObservable(), resultSelector: { elements, showFavorites, searchText in
             return self.elementsToDisplay(elements, showFavorites, searchText)
